@@ -1,3 +1,72 @@
+# NextJs From Scratch
+
+## Install
+
+To create a project, run:
+
+```bash
+npx create-next-app my-app
+
+  cd my-app
+  npm run dev
+```
+
+## Folder structure
+
+📦my-app
+
+┣ 📂pages
+
+┃ ┣ 📂api
+
+┃ ┃ ┗ 📜hello.js
+
+┃ ┣ 📜index.js
+
+┃ ┗ 📜_app.js
+
+┣ 📂public
+
+┃ ┣ 📜favicon.ico
+
+┃ ┗ 📜vercel.svg
+
+┣ 📂styles
+
+┃ ┣ 📜globals.css
+
+┃ ┗ 📜Home.module.css
+
+┣ 📜.gitignore
+
+┣ 📜package-lock.json
+
+┣ 📜package.json
+
+┗ 📜README.md
+
+## Pages
+
+All React Component exported from a .js, .jsx, .ts, or .tsx file in the pages directory will become a page. Each page is associeted with a route based on its own file name.
+
+**Example:**
+If you create a React Component like below
+
+```JS
+const welcome = () => {
+  return (
+    <div>
+      Welcome
+    </div>
+  )
+}
+
+export default welcome
+
+```
+
+it will be accessible at _/welcome_ with no need to import a router
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
