@@ -145,9 +145,50 @@ Meta.defaultProps = {
 }
 
 export default Meta
+
 ```
 
-then you can import this file in a Layout.
+## Link component
+
+Similar to what we would do with React-Router we use Link imported from next
+import Link from "next/link";
+
+<Link href="/">home</Link>
+
+With that in mind, now we can create a Nav component to navigate through our links and then imported in the Layout component
+
+```js
+import Link from "next/link";
+import { useRouter } from "next/router";
+
+const Nav = () => {
+  const router = useRouter();
+  return (
+    <nav className="nav">
+      <ul>
+        <li className={router.pathname == "/" ? "active" : ""}>
+          <Link href="/">home</Link>
+        </li>
+        <li className={router.pathname == "/welcome" ? "active" : ""}>
+          <Link href="/welcome">Welcome</Link>
+        </li>
+      </ul>
+    </nav>
+  );
+};
+
+export default Nav;
+```
+
+## Data Fetching and Rendering
+
+Two forms of Pre-rendering
+Next.js has two forms of pre-rendering: Static Generation and Server-side Rendering. The difference is in when it generates the HTML for a page.
+
+Static Generation (Recommended): The HTML is generated at build time and will be reused on each request.
+Server-side Rendering: The HTML is generated on each request.
+
+### getStaticProps
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 

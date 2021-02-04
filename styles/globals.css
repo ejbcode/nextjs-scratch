@@ -13,4 +13,29 @@ a {
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.nav {
+  background: darkslategray;
+}
+
+.nav ul {
+  text-decoration: none;
+  list-style: none;
+  display: flex;
+}
+
+.nav li {
+  padding: 2rem;
+  font-size: 1.5rem;
+  color: lightgray;
+}
+
+.active {
+  font-weight: 500;
+}
+.active a {
+  color: white;
 }
