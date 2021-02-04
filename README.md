@@ -67,6 +67,88 @@ export default welcome
 
 it will be accessible at _/welcome_ with no need to import a router
 
+## Layout
+
+The _\_app.js_ file wraps around all of your page components, so it's a good place to put our Layout component.
+
+_page/\_app.js_
+
+```JS
+import Layout from '../components/Layout'
+import '../styles/globals.css'
+
+function MyApp({ Component, pageProps }) {
+  return (
+    <Layout>
+      <h1>Title</h1>
+        <Component {...pageProps} />
+    </Layout>
+  )
+}
+
+export default MyApp
+```
+
+```JS
+import React from 'react'
+
+const Layout = ({children}) => {
+  return (
+    <div>
+      Header
+        <div className="main">
+          {children}
+        </div>
+      Footer
+    </div>
+  )
+}
+
+export default Layout
+```
+
+## Head Component
+
+Head is a component imported from 'next/head'
+
+```HTML
+ <Head>
+    <title>This page has a title 🤔</title>
+    <meta charSet="utf-8" />
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+  </Head>
+```
+
+This should be imported in each page, but we can create a Layout with the Head component in it.
+_e.g:.:_
+
+```JS
+import Head from 'next/head'
+
+const Meta = ({ title, keywords, description }) => {
+  return (
+    <Head>
+      <meta name='viewport' content='width=device-width, initial-scale=1' />
+      <meta name='keywords' content={keywords} />
+      <meta name='description' content={description} />
+      <meta charSet='utf-8' />
+      <link rel='icon' href='/favicon.ico' />
+      <title>{title}</title>
+    </Head>
+  )
+}
+
+Meta.defaultProps = {
+  title: 'My App Title',
+  keywords: 'nextjs, react',
+  description: 'Next From scratch',
+}
+
+export default Meta
+```
+
+then you can import this file in a Layout.
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
