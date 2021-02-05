@@ -1,6 +1,10 @@
+import Meta from "../../../components/Meta"
+
 const character = ({data}) => {
   return (
     <div>
+      <Meta title={data.name}/>
+      
     Static
       <p>{data.name}</p>
       <img src={data.image} alt={data.name}/>

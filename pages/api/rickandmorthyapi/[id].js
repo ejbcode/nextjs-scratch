@@ -1,9 +1,7 @@
-
-import {character} from './characters.js'
-
+import data from './data.json'
 
 export default function handler({ query: { id } }, res) {
-  const filtered = character.filter((item) => item.id === id)
+  const filtered = data.results.filter((char) => char.id === parseInt(id))
 
   if (filtered.length > 0) {
     res.status(200).json(filtered[0])
