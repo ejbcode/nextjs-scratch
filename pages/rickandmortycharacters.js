@@ -1,4 +1,6 @@
 import Link from "next/link"
+import Image from 'next/image'
+import styles from "../styles/Characters.module.css"
 
 const rickandmortycharacters = ({data}) => {
 
@@ -7,7 +9,8 @@ const rickandmortycharacters = ({data}) => {
       <h2>Last rickandmortycharacters in Chile</h2>
       {data.results.map((item)=> (
         <div key={item.id}>
-          <div>
+          <div className={styles.single}>
+            <img src={item.image} width="100" height={100} alt={item.name}/>
             <span>{item.name}</span>
             <button><Link href={`/rickandmortys/${item.id}`}>ServerSide</Link></button>
             <button><Link href={`/rickandmortys-static/${item.id}`}>StaticSide</Link></button>
