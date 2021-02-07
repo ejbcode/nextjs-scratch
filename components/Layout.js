@@ -7,7 +7,7 @@ const Layout = ({children}) => {
     <div>
       <Meta />
       <Nav />
-        <div className="main">
+        <div className="content">
           {children}
         </div>
       Footer

@@ -1,4 +1,4 @@
-import Meta from '../components/Meta'
+import Meta from './Meta'
 import { server } from '../config'
 
 const fromnextapi = ({data}) => {

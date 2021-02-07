@@ -188,7 +188,7 @@ Next.js has two forms of pre-rendering: Static Generation and Server-side Render
 Static Generation (Recommended): The HTML is generated at build time and will be reused on each request.
 Server-side Rendering: The HTML is generated on each request.
 
-### getStaticProps
+### getStaticProps>
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
