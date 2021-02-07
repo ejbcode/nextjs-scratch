@@ -6,7 +6,7 @@ const rickandmortycharacters = ({ data }) => {
 
   return (
     <div>
-      <h1>List of characters of Rick an morty. Static Fetching from a external API </h1>
+      <h1>Fetch static from the next api </h1>
       <div className={styles.cards}>
         {data.results.map((item) => (
 
@@ -34,7 +34,7 @@ const rickandmortycharacters = ({ data }) => {
 }
 
 export async function getStaticProps() {
-  const res = await fetch(`https://rickandmortyapi.com/api/character/`)
+  const res = await fetch(`https://nextjs-scratch.vercel.app/api/rickandmorthyapi`)
   const data = await res.json()
 
   return {

@@ -19,7 +19,11 @@ const Nav = () => {
         </Link>
 
         <Link href="/rickandmortycharacters" className={router.pathname == "/rickandmortycharacters" ? "active" : "" }>
-          <a className={router.pathname == "/rickandmortycharacters" ? "active" : "" }>Rick and morty characters</a>
+          <a className={router.pathname == "/rickandmortycharacters" ? "active" : "" }>Fetching Example</a>
+        </Link>
+
+        <Link href="/fromnextapi" className={router.pathname == "/fromnextapi" ? "active" : "" }>
+          <a className={router.pathname == "/fromnextapi" ? "active" : "" }>Fetching 2</a>
         </Link>
       </div>   
     </nav>
