@@ -1,4 +1,4 @@
-# NextJs From Scratch
+# NextJs 101
 
 ## Install
 
@@ -80,7 +80,6 @@ import '../styles/globals.css'
 function MyApp({ Component, pageProps }) {
   return (
     <Layout>
-      <h1>Title</h1>
         <Component {...pageProps} />
     </Layout>
   )
@@ -109,11 +108,11 @@ export default Layout
 
 ## Head Component
 
-Head is a component imported from 'next/head'
+Head is a 'next/head' component that can be imported from any Next.js page component to add information to the page header. In this component you can customize the page title, all of the website metadata, page keywords, viewport settings
 
 ```HTML
  <Head>
-    <title>This page has a title 🤔</title>
+    <title>NextJS 101</title>
     <meta charSet="utf-8" />
     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
   </Head>
@@ -150,10 +149,10 @@ export default Meta
 
 ## Link component
 
-Similar to what we would do with React-Router we use Link imported from next
+Similar to what we would do with React-Router we use Link to navigate between pages imported from next
 import Link from "next/link";
 
-<Link href="/">home</Link>
+<Link href="/"><a>home</a></Link>
 
 With that in mind, now we can create a Nav component to navigate through our links and then imported in the Layout component
 
@@ -167,10 +166,14 @@ const Nav = () => {
     <nav className="nav">
       <ul>
         <li className={router.pathname == "/" ? "active" : ""}>
-          <Link href="/">home</Link>
+          <Link href="/">
+            <a>home</a>
+          </Link>
         </li>
         <li className={router.pathname == "/welcome" ? "active" : ""}>
-          <Link href="/welcome">Welcome</Link>
+          <Link href="/welcome">
+            <a>Welcome</a>
+          </Link>
         </li>
       </ul>
     </nav>
@@ -180,15 +183,50 @@ const Nav = () => {
 export default Nav;
 ```
 
+## Image Component
+
+The Next.js Image component allow you're to take advantage of lazy loading as well as optimizations around image sizes.
+Next.js optimizes images on-demand, as users request them. Unlike static site generators and static-only solutions, your build times aren't increased, whether shipping 10 images or 10 million images.
+
+```JS
+import Image from 'next/image'
+
+const Nav = () => {
+
+  const router = useRouter()
+  return (
+    <div className="nav">
+      <Image src="/logo.png"  alt="site logo"  width={90} height={50}/>
+    </div>
+  )
+}
+
+export default Nav
+
+```
+
 ## Data Fetching and Rendering
 
-Two forms of Pre-rendering
-Next.js has two forms of pre-rendering: Static Generation and Server-side Rendering. The difference is in when it generates the HTML for a page.
+Next.js provide two forms of pre-rendering: Static Generation and Server-side that differ when generates the HTML for a page.
 
-Static Generation (Recommended): The HTML is generated at build time and will be reused on each request.
-Server-side Rendering: The HTML is generated on each request.
+Static Generation is the pre-rendering method that generates the HTML at build time. The pre-rendered HTML is then reused on each request.
+Server-side Rendering is the pre-rendering method that generates the HTML on each request
+In the Static Generation, the HTML pages are rendered at build time.
 
-### getStaticProps>
+### Static Generation with getStaticProps
+
+```JS
+export async function getStaticProps() {
+  const res = await fetch(`https:....`)
+  const data = await res.json()
+
+  return {
+    props: {
+      data
+    }
+  }
+}
+```
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
